@@ -26,10 +26,10 @@ Breach Protocol dalam Cyberpunk 2077 adalah sebuah minigame meretas yang mensimu
 │   ├─── solver.py                       
 │  
 └───test                            # Testing cases
-│   ├── case.txt             
-│   ├─── case1.txt.
-│   ├─── case2.txt
-│   ├─── case3.txt
+    ├── case.txt             
+    ├─── case1.txt.
+    ├─── case2.txt
+    ├─── case3.txt
 ```
 
 ## How to Run
