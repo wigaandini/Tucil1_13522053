@@ -35,7 +35,7 @@ Breach Protocol dalam Cyberpunk 2077 adalah sebuah minigame meretas yang mensimu
 ## How to Run
 1. Clone repository ini dengan mengetikkan `git clone https://github.com/wigaandini/Tucil1_13522053` pada terminal
 2. Pindah ke direktori src dengan `cd src`
-3. Run file dengan `python -u "d:\ITB\SEM 4\Stima\Tucil 1\Tucil1_13522053\src\main.py"`
+3. Run file dengan `python main.py"`
 
 ## How to Use
 1. Setelah Anda melakukan run file, perhatikan perintah yang muncul
