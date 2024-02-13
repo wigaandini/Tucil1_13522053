@@ -28,6 +28,14 @@ def arrange_seq(seq_num, max_seq_size, token_name):
     return sequences_with_points
 
 
+def arrange_matrix(matrix_height, matrix_width, tokens):
+    matrix = []
+    for i in range(matrix_height):
+        row = [random.choice(tokens) for j in range(matrix_width)]
+        matrix.append(row)
+    return matrix
+
+
 def manual_input():
     number_of_unique_tokens = int(input("\nEnter the number of unique tokens: "))
     tokens = []
@@ -43,10 +51,9 @@ def manual_input():
     matrix_height, matrix_width = map(int, input("Enter the matrix_height and matrix_width (separated by space): ").split())
     seq_num = int(input("Enter the number of sequences: "))
     max_seq_size = int(input("Enter the max size of the sequence: "))
-    matrix = []
-    for i in range(matrix_height):
-        row = [random.choice(tokens) for j in range(matrix_width)]
-        matrix.append(row)
+    matrix = arrange_matrix(matrix_height, matrix_width, tokens)
     sequences = arrange_seq(seq_num, max_seq_size, token_name)
     
     return buffer_size, matrix, sequences, matrix_width, matrix_height, tokens, seq_num, max_seq_size
+
+

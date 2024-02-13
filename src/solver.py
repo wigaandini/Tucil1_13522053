@@ -1,7 +1,8 @@
-def collect_possible_path(matrix, buffer_size):
-    def check_move(row, col):
-        return 0 <= row < len(matrix) and 0 <= col < len(matrix[0]) and (row, col) not in used
+def check_move(row, col, matrix, used):
+    return 0 <= row < len(matrix) and 0 <= col < len(matrix[0]) and (row, col) not in used
 
+
+def collect_possible_path(matrix, buffer_size):
     def find_path(row, col, curr_buffer_length, vertical):
         used.add((row, col))
         curr_token.append(matrix[row][col]) 
@@ -19,7 +20,7 @@ def collect_possible_path(matrix, buffer_size):
                 curr_row, curr_col = row, col
                 for _ in range(buffer_size - curr_buffer_length):
                     curr_row, curr_col = curr_row + i, curr_col + j
-                    if check_move(curr_row, curr_col):
+                    if check_move(curr_row, curr_col, matrix, used):
                         find_path(curr_row, curr_col, curr_buffer_length + 1, not vertical)
 
         used.remove((row, col))
@@ -48,10 +49,10 @@ def is_subsequence(sequence, path):
 
 # Buat hitung point dari setiap path sesuai dengan sequence yang ada
 def count_points(seq, path):
-    points = {tuple(sequence[0]): 0 for sequence in seq}  # Convert list to tuple here
+    points = {tuple(sequence[0]): 0 for sequence in seq} 
     for sub_path in seq:
         if is_subsequence(sub_path[0], path):
-            points[tuple(sub_path[0])] += sub_path[1]  # Convert list to tuple here
+            points[tuple(sub_path[0])] += sub_path[1] 
     return points
 
 

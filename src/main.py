@@ -24,17 +24,20 @@ print("-------------------------------------------------------------------------
 print()
 
 # Input
-print("Choose the input mode: ")
-print("File Input (1)")
-print("Manual Input (2)")
+print("=========== CHOOSE INPUT MODE ===========")
+print("             File Input (1)")
+print("            Manual Input (2)")
+print("=========================================")
 input_mode = int(input("\nChoice: "))
 
 check = False
+import os
+
 while not check:
     # File input
     if input_mode == 1:
         check = True
-        folder_name = "input"
+        folder_name = os.path.join("..", "test")  # Navigate up one level to the test folder
         file_name = input("Enter the file name: ")
         file_path = os.path.join(folder_name, file_name)
         while not os.path.exists(file_path):
@@ -44,7 +47,7 @@ while not check:
         buffer_size, matrix, sequence, matrix_width, matrix_height = read_file(file_path)
         print()
 
-    
+
     # Manual input
     elif input_mode == 2:
         check = True
@@ -71,6 +74,7 @@ start = time.time()
 possible_path, coordinate = collect_possible_path(matrix, buffer_size)
 possible_point = collect_possible_point(sequence, possible_path) # Cari point dari setiap path yang mungkin
 
+print("=========== RESULT ===========")
 if not possible_point:
     print("No possible path found.")
 else:
@@ -94,14 +98,15 @@ else:
         print(coor)
 
 end = time.time()
+total_waktu = round((end - start) * 1000, 3)
 print()
-print("Total waktu:", round((end - start) * 1000, 3), "ms")
+print("Total waktu:", total_waktu, "ms")
 print("------------------------------------------------------------------------------------------------------------------------------------------------")
 print("Do you want to save the result as text file? (Y/N)")
 save = input("Choice: ")
 if save == "Y" or save == "y":
     file_name = input("Enter the file name: ")
-    save_file(file_name, possible_point, max_point, possible_path[max_index], coordinate[max_index], matrix, round((end - start) * 1000, 3), False)
+    save_file(file_name, possible_point, max_point, possible_path[max_index], coordinate[max_index], total_waktu)
     print("File has been saved as", file_name, "in the folder 'saved'.")
 else:
     print("File not saved.")
