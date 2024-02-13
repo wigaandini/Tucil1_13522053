@@ -5,6 +5,7 @@ from solver import *
 from output import *
 import os
 import time
+from pathlib import Path
 
 
 # Inizialiation
@@ -37,13 +38,13 @@ while not check:
     # File input
     if input_mode == 1:
         check = True
-        folder_name = os.path.join("..", "test")  # Navigate up one level to the test folder
+        path = Path().absolute()
         file_name = input("Enter the file name: ")
-        file_path = os.path.join(folder_name, file_name)
+        file_path = str(path) + "\\test\\" + file_name
         while not os.path.exists(file_path):
             print("File not found. Please try again.")
             file_name = input("Enter the file name: ")
-            file_path = os.path.join(folder_name, file_name)
+            file_path = str(path) + "\\test\\" + file_name
         buffer_size, matrix, sequence, matrix_width, matrix_height = read_file(file_path)
         print()
 
