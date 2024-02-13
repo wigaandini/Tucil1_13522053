@@ -1,10 +1,10 @@
 import os
+from pathlib import Path
 
 # Saving file to folder "saved"
-def save_file(filename, possible_point, max_point, path_choosen, coordinates, exe_time):
-    save_folder = "saved"
-    os.makedirs(save_folder, exist_ok=True)
-    filepath = os.path.join(save_folder, filename)
+def save_file(file_name, possible_point, max_point, path_choosen, coordinates, exe_time):
+    path = Path().absolute()
+    file_path = str(path) + "\\src\\" + "\\saved\\" + file_name
     with open(filepath, "w") as f:
         f.write(" ___  _ _  ___  ___  ___  ___  _ _  _ _  _ __   ___  ___  ___  ___    ___  ___  ___  ___  ___  _ _    ___  ___  ___  ___  ___  ___  ___  _  \n") 
         f.write("|  _]| | || . ]| __]| . \| . \| | || \ || / /  [_  ]|   ||_  ||_  |  | . ]| . \| __]| . ||  _]| | |  | . \| . \| . ||_ _|| . ||  _]| . || |  \n")

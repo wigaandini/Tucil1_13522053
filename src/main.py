@@ -40,7 +40,8 @@ while not check:
         check = True
         path = Path().absolute()
         file_name = input("Enter the file name: ")
-        file_path = str(path) + "\\test\\" + file_name
+        file_path = str(path) + "\..\\test\\" + file_name
+        print(file_path)
         while not os.path.exists(file_path):
             print("File not found. Please try again.")
             file_name = input("Enter the file name: ")
