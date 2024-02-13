@@ -2,7 +2,7 @@
 
 | NIM | Nama |
 | :---: | :---: |
-| 13522053 | Erdianti Wiga|
+| 13522053 | Erdianti Wiga Putri Andini|
 
 ## About This Project
 Cyberpunk 2077 Breach Protocol
